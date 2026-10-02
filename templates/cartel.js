@@ -57,6 +57,9 @@ function generarCartel(parada, urlBase) {
     font-weight: 700;
     margin-top: 8mm;
     text-align: center;
+    display: inline-block;
+    border-bottom: 4px solid #1d4ed8;
+    padding-bottom: 2mm;
   }
   .parada-direccion {
     font-size: 13px;
@@ -79,7 +82,7 @@ function generarCartel(parada, urlBase) {
 </head>
 <body>
   <h1>Escanea y consulta<br>los horarios de tu autobús</h1>
-  <p class="subtitulo">Escaneja i consulta els horaris del teu autobús</p>
+  <p class="subtitulo">Scan to check your bus times</p>
 
   <svg class="ilustracion" viewBox="0 0 220 200" xmlns="http://www.w3.org/2000/svg">
     <g transform="translate(10,10)">
