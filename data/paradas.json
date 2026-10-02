@@ -1,130 +1,212 @@
 {
   "empresas": [
     {
-      "id": "ruiz-transportes",
-      "nombre": "Ruiz Transportes",
-      "telefono": "965 701 234"
+      "id": "avanza",
+      "nombre": "Avanza (Costazul)",
+      "telefono": "965 710 449"
     },
     {
-      "id": "costa-azul",
-      "nombre": "Costa Azul Autocares",
-      "telefono": "966 450 876"
-    },
-    {
-      "id": "vega-baja",
-      "nombre": "Autobuses Vega Baja",
-      "telefono": "966 220 345"
+      "id": "ayuntamiento-catral",
+      "nombre": "Ayuntamiento de Catral",
+      "telefono": "965 723 001"
     }
   ],
 
   "lineas": [
     {
-      "id": "l1",
-      "nombre": "Línea 1",
-      "empresaId": "ruiz-transportes",
+      "id": "l638",
+      "nombre": "L638",
+      "empresaId": "avanza",
+      "color": "#e11d48",
+      "recorridoTexto": "Catral → Cercanías San Isidro → Albatera → Granja Rocamora → Cox → Callosa de Segura → Rafal → San Bartolomé → Hospital Vega Baja → Almoradí → Heredades → Formentera → Rojales → Benijófar → Ciudad Quesada → Torrevieja",
+      "paradasIds": ["purisima", "manuel-flores"]
+    },
+    {
+      "id": "l635",
+      "nombre": "L635",
+      "empresaId": "avanza",
       "color": "#2563eb",
-      "recorridoTexto": "Catral (Santa Bárbara) → Catral (Ayuntamiento) → Catral (Parque Municipal) → Dolores → Elche",
-      "paradasIds": ["santa-barbara", "ayuntamiento", "parque-municipal"]
+      "recorridoTexto": "Orihuela ↔ Redován ↔ Hospital Vega Baja ↔ Callosa de Segura ↔ Benejúzar ↔ Cox ↔ Algorfa ↔ Granja Rocamora ↔ Almoradí ↔ Dolores ↔ Catral ↔ Cercanías San Isidro ↔ Albatera ↔ Crevillente ↔ Elche",
+      "paradasIds": ["purisima", "manuel-flores"]
     },
     {
-      "id": "l2",
-      "nombre": "Línea 2",
-      "empresaId": "costa-azul",
+      "id": "l639",
+      "nombre": "L639",
+      "empresaId": "avanza",
+      "color": "#d97706",
+      "recorridoTexto": "San Miguel de Salinas ↔ Los Montesinos ↔ Benijófar ↔ Almoradí ↔ Dolores ↔ Catral ↔ Alicante",
+      "paradasIds": ["purisima", "manuel-flores"]
+    },
+    {
+      "id": "l39",
+      "nombre": "L39",
+      "empresaId": "avanza",
+      "color": "#7c3aed",
+      "recorridoTexto": "Torrevieja ↔ Ciudad Quesada ↔ Benijófar ↔ Rojales ↔ Guardamar ↔ Dolores ↔ Catral ↔ Crevillente ↔ Elche",
+      "paradasIds": ["purisima", "manuel-flores"]
+    },
+    {
+      "id": "municipal",
+      "nombre": "Autobús municipal",
+      "empresaId": "ayuntamiento-catral",
       "color": "#16a34a",
-      "recorridoTexto": "Catral (Ayuntamiento) → Catral (Santa Bárbara) → Callosa de Segura → Orihuela",
-      "paradasIds": ["ayuntamiento", "santa-barbara"]
-    },
-    {
-      "id": "l3",
-      "nombre": "Línea 3",
-      "empresaId": "vega-baja",
-      "color": "#dc2626",
-      "recorridoTexto": "Catral (Santa Bárbara) → Catral (Ayuntamiento) → Catral (Parque Municipal) → Cox → Albatera",
-      "paradasIds": ["santa-barbara", "ayuntamiento", "parque-municipal"]
+      "recorridoTexto": "Catral → Dolores (Centro de Salud) → Hospital → Orihuela (Puente del Rey y Centro de Especialidades). Parada en Almoradí (Centro de Salud) solo con cita médica.",
+      "paradasIds": ["purisima", "manuel-flores"]
     }
   ],
 
   "paradas": [
     {
-      "id": "santa-barbara",
-      "nombre": "Santa Bárbara",
-      "direccion": "Calle Mayor, 12, Catral",
-      "coordenadas": { "lat": 38.1601, "lng": -0.8018 },
+      "id": "purisima",
+      "nombre": "C/Purísima (parada La Caixa)",
+      "direccion": "Calle de la Purísima, Catral",
+      "coordenadas": { "lat": 38.1641339, "lng": -0.8025043 },
       "avisos": "",
       "horarios": {
         "laborable": [
-          { "hora": "07:30", "lineaId": "l1", "destino": "Elche" },
-          { "hora": "08:10", "lineaId": "l3", "destino": "Albatera" },
-          { "hora": "09:15", "lineaId": "l2", "destino": "Orihuela" },
-          { "hora": "13:00", "lineaId": "l1", "destino": "Elche" },
-          { "hora": "15:20", "lineaId": "l3", "destino": "Albatera" },
-          { "hora": "16:45", "lineaId": "l2", "destino": "Orihuela" },
-          { "hora": "19:30", "lineaId": "l1", "destino": "Elche" }
+          { "hora": "07:00", "lineaId": "l638", "destino": "Torrevieja" },
+          { "hora": "07:00", "lineaId": "municipal", "destino": "Estación de tren de San Isidro" },
+          { "hora": "07:45", "lineaId": "municipal", "destino": "Orihuela" },
+          { "hora": "08:10", "lineaId": "l635", "destino": "Elche" },
+          { "hora": "08:35", "lineaId": "l39", "destino": "Torrevieja" },
+          { "hora": "08:45", "lineaId": "l635", "destino": "Orihuela" },
+          { "hora": "09:20", "lineaId": "l39", "destino": "Elche" },
+          { "hora": "09:35", "lineaId": "l639", "destino": "San Miguel de Salinas" },
+          { "hora": "09:45", "lineaId": "municipal", "destino": "Orihuela" },
+          { "hora": "10:40", "lineaId": "l635", "destino": "Elche" },
+          { "hora": "10:55", "lineaId": "l639", "destino": "Alicante" },
+          { "hora": "11:15", "lineaId": "l635", "destino": "Orihuela" },
+          { "hora": "11:30", "lineaId": "l638", "destino": "Torrevieja" },
+          { "hora": "11:30", "lineaId": "municipal", "destino": "Orihuela" },
+          { "hora": "12:20", "lineaId": "l39", "destino": "Elche" },
+          { "hora": "12:30", "lineaId": "l39", "destino": "Torrevieja" },
+          { "hora": "13:10", "lineaId": "l635", "destino": "Elche" },
+          { "hora": "13:45", "lineaId": "l635", "destino": "Orihuela" },
+          { "hora": "15:40", "lineaId": "l635", "destino": "Elche" },
+          { "hora": "16:00", "lineaId": "l638", "destino": "Torrevieja" },
+          { "hora": "16:15", "lineaId": "l635", "destino": "Orihuela" },
+          { "hora": "16:34", "lineaId": "l39", "destino": "Elche" },
+          { "hora": "16:35", "lineaId": "l39", "destino": "Torrevieja" },
+          { "hora": "16:55", "lineaId": "l639", "destino": "Alicante" },
+          { "hora": "18:05", "lineaId": "l639", "destino": "San Miguel de Salinas" },
+          { "hora": "18:10", "lineaId": "l635", "destino": "Elche" },
+          { "hora": "18:45", "lineaId": "l635", "destino": "Orihuela" },
+          { "hora": "20:40", "lineaId": "l635", "destino": "Elche" },
+          { "hora": "21:00", "lineaId": "l638", "destino": "Torrevieja" },
+          { "hora": "21:30", "lineaId": "l635", "destino": "Orihuela" },
+          { "hora": "23:30", "lineaId": "l635", "destino": "Orihuela" }
         ],
         "sabado": [
-          { "hora": "09:00", "lineaId": "l1", "destino": "Elche" },
-          { "hora": "11:30", "lineaId": "l3", "destino": "Albatera" },
-          { "hora": "14:00", "lineaId": "l2", "destino": "Orihuela" },
-          { "hora": "18:30", "lineaId": "l1", "destino": "Elche" }
+          { "hora": "07:00", "lineaId": "l638", "destino": "Torrevieja" },
+          { "hora": "07:00", "lineaId": "municipal", "destino": "Estación de tren de San Isidro" },
+          { "hora": "07:45", "lineaId": "municipal", "destino": "Orihuela" },
+          { "hora": "08:25", "lineaId": "l635", "destino": "Elche" },
+          { "hora": "08:35", "lineaId": "l39", "destino": "Torrevieja" },
+          { "hora": "09:20", "lineaId": "l39", "destino": "Elche" },
+          { "hora": "09:45", "lineaId": "municipal", "destino": "Orihuela" },
+          { "hora": "10:55", "lineaId": "l635", "destino": "Elche" },
+          { "hora": "11:00", "lineaId": "l635", "destino": "Orihuela" },
+          { "hora": "11:30", "lineaId": "municipal", "destino": "Orihuela" },
+          { "hora": "12:00", "lineaId": "l638", "destino": "Torrevieja" },
+          { "hora": "13:00", "lineaId": "l635", "destino": "Orihuela" },
+          { "hora": "16:00", "lineaId": "l638", "destino": "Torrevieja" },
+          { "hora": "16:25", "lineaId": "l635", "destino": "Elche" },
+          { "hora": "16:35", "lineaId": "l39", "destino": "Torrevieja" },
+          { "hora": "17:34", "lineaId": "l39", "destino": "Elche" },
+          { "hora": "22:00", "lineaId": "l635", "destino": "Orihuela" }
         ],
         "domingo_festivo": [
-          { "hora": "10:00", "lineaId": "l2", "destino": "Orihuela" },
-          { "hora": "12:15", "lineaId": "l3", "destino": "Albatera" },
-          { "hora": "19:00", "lineaId": "l1", "destino": "Elche" }
+          { "hora": "07:00", "lineaId": "municipal", "destino": "Estación de tren de San Isidro" },
+          { "hora": "07:45", "lineaId": "municipal", "destino": "Orihuela" },
+          { "hora": "08:55", "lineaId": "l635", "destino": "Elche" },
+          { "hora": "09:00", "lineaId": "l638", "destino": "Torrevieja" },
+          { "hora": "09:45", "lineaId": "municipal", "destino": "Orihuela" },
+          { "hora": "10:55", "lineaId": "l635", "destino": "Elche" },
+          { "hora": "11:00", "lineaId": "l635", "destino": "Orihuela" },
+          { "hora": "11:30", "lineaId": "l635", "destino": "Orihuela" },
+          { "hora": "11:30", "lineaId": "municipal", "destino": "Orihuela" },
+          { "hora": "13:00", "lineaId": "l635", "destino": "Orihuela" },
+          { "hora": "15:00", "lineaId": "l638", "destino": "Torrevieja" },
+          { "hora": "16:25", "lineaId": "l635", "destino": "Elche" },
+          { "hora": "17:30", "lineaId": "l638", "destino": "Torrevieja" },
+          { "hora": "22:00", "lineaId": "l635", "destino": "Orihuela" }
         ]
       }
     },
     {
-      "id": "ayuntamiento",
-      "nombre": "Ayuntamiento",
-      "direccion": "Plaza de España, 1, Catral",
-      "coordenadas": { "lat": 38.1583, "lng": -0.8057 },
+      "id": "manuel-flores",
+      "nombre": "C/Manuel Flores (parada Panadería del Luis)",
+      "direccion": "Calle Manuel Flores, Catral",
+      "coordenadas": { "lat": 38.1589450, "lng": -0.8033792 },
       "avisos": "",
       "horarios": {
         "laborable": [
-          { "hora": "07:40", "lineaId": "l1", "destino": "Elche" },
-          { "hora": "08:20", "lineaId": "l3", "destino": "Albatera" },
-          { "hora": "09:05", "lineaId": "l2", "destino": "Orihuela" },
-          { "hora": "13:10", "lineaId": "l1", "destino": "Elche" },
-          { "hora": "15:30", "lineaId": "l3", "destino": "Albatera" },
-          { "hora": "16:35", "lineaId": "l2", "destino": "Orihuela" },
-          { "hora": "19:40", "lineaId": "l1", "destino": "Elche" }
+          { "hora": "07:00", "lineaId": "l638", "destino": "Torrevieja" },
+          { "hora": "07:00", "lineaId": "municipal", "destino": "Estación de tren de San Isidro" },
+          { "hora": "07:45", "lineaId": "municipal", "destino": "Orihuela" },
+          { "hora": "08:10", "lineaId": "l635", "destino": "Elche" },
+          { "hora": "08:35", "lineaId": "l39", "destino": "Torrevieja" },
+          { "hora": "08:45", "lineaId": "l635", "destino": "Orihuela" },
+          { "hora": "09:20", "lineaId": "l39", "destino": "Elche" },
+          { "hora": "09:35", "lineaId": "l639", "destino": "San Miguel de Salinas" },
+          { "hora": "09:45", "lineaId": "municipal", "destino": "Orihuela" },
+          { "hora": "10:40", "lineaId": "l635", "destino": "Elche" },
+          { "hora": "10:55", "lineaId": "l639", "destino": "Alicante" },
+          { "hora": "11:15", "lineaId": "l635", "destino": "Orihuela" },
+          { "hora": "11:30", "lineaId": "l638", "destino": "Torrevieja" },
+          { "hora": "11:30", "lineaId": "municipal", "destino": "Orihuela" },
+          { "hora": "12:20", "lineaId": "l39", "destino": "Elche" },
+          { "hora": "12:30", "lineaId": "l39", "destino": "Torrevieja" },
+          { "hora": "13:10", "lineaId": "l635", "destino": "Elche" },
+          { "hora": "13:45", "lineaId": "l635", "destino": "Orihuela" },
+          { "hora": "15:40", "lineaId": "l635", "destino": "Elche" },
+          { "hora": "16:00", "lineaId": "l638", "destino": "Torrevieja" },
+          { "hora": "16:15", "lineaId": "l635", "destino": "Orihuela" },
+          { "hora": "16:34", "lineaId": "l39", "destino": "Elche" },
+          { "hora": "16:35", "lineaId": "l39", "destino": "Torrevieja" },
+          { "hora": "16:55", "lineaId": "l639", "destino": "Alicante" },
+          { "hora": "18:05", "lineaId": "l639", "destino": "San Miguel de Salinas" },
+          { "hora": "18:10", "lineaId": "l635", "destino": "Elche" },
+          { "hora": "18:45", "lineaId": "l635", "destino": "Orihuela" },
+          { "hora": "20:40", "lineaId": "l635", "destino": "Elche" },
+          { "hora": "21:00", "lineaId": "l638", "destino": "Torrevieja" },
+          { "hora": "21:30", "lineaId": "l635", "destino": "Orihuela" },
+          { "hora": "23:30", "lineaId": "l635", "destino": "Orihuela" }
         ],
         "sabado": [
-          { "hora": "08:50", "lineaId": "l1", "destino": "Elche" },
-          { "hora": "11:40", "lineaId": "l3", "destino": "Albatera" },
-          { "hora": "13:50", "lineaId": "l2", "destino": "Orihuela" },
-          { "hora": "18:20", "lineaId": "l1", "destino": "Elche" }
+          { "hora": "07:00", "lineaId": "l638", "destino": "Torrevieja" },
+          { "hora": "07:00", "lineaId": "municipal", "destino": "Estación de tren de San Isidro" },
+          { "hora": "07:45", "lineaId": "municipal", "destino": "Orihuela" },
+          { "hora": "08:25", "lineaId": "l635", "destino": "Elche" },
+          { "hora": "08:35", "lineaId": "l39", "destino": "Torrevieja" },
+          { "hora": "09:20", "lineaId": "l39", "destino": "Elche" },
+          { "hora": "09:45", "lineaId": "municipal", "destino": "Orihuela" },
+          { "hora": "10:55", "lineaId": "l635", "destino": "Elche" },
+          { "hora": "11:00", "lineaId": "l635", "destino": "Orihuela" },
+          { "hora": "11:30", "lineaId": "municipal", "destino": "Orihuela" },
+          { "hora": "12:00", "lineaId": "l638", "destino": "Torrevieja" },
+          { "hora": "13:00", "lineaId": "l635", "destino": "Orihuela" },
+          { "hora": "16:00", "lineaId": "l638", "destino": "Torrevieja" },
+          { "hora": "16:25", "lineaId": "l635", "destino": "Elche" },
+          { "hora": "16:35", "lineaId": "l39", "destino": "Torrevieja" },
+          { "hora": "17:34", "lineaId": "l39", "destino": "Elche" },
+          { "hora": "22:00", "lineaId": "l635", "destino": "Orihuela" }
         ],
         "domingo_festivo": [
-          { "hora": "09:50", "lineaId": "l2", "destino": "Orihuela" },
-          { "hora": "12:25", "lineaId": "l3", "destino": "Albatera" },
-          { "hora": "18:50", "lineaId": "l1", "destino": "Elche" }
-        ]
-      }
-    },
-    {
-      "id": "parque-municipal",
-      "nombre": "Parque Municipal",
-      "direccion": "Avenida de la Libertad, s/n, Catral",
-      "coordenadas": { "lat": 38.1572, "lng": -0.8036 },
-      "avisos": "",
-      "horarios": {
-        "laborable": [
-          { "hora": "07:50", "lineaId": "l1", "destino": "Elche" },
-          { "hora": "08:30", "lineaId": "l3", "destino": "Albatera" },
-          { "hora": "13:20", "lineaId": "l1", "destino": "Elche" },
-          { "hora": "15:40", "lineaId": "l3", "destino": "Albatera" },
-          { "hora": "19:50", "lineaId": "l1", "destino": "Elche" }
-        ],
-        "sabado": [
-          { "hora": "09:10", "lineaId": "l1", "destino": "Elche" },
-          { "hora": "11:50", "lineaId": "l3", "destino": "Albatera" },
-          { "hora": "18:40", "lineaId": "l1", "destino": "Elche" }
-        ],
-        "domingo_festivo": [
-          { "hora": "12:35", "lineaId": "l3", "destino": "Albatera" },
-          { "hora": "19:10", "lineaId": "l1", "destino": "Elche" }
+          { "hora": "07:00", "lineaId": "municipal", "destino": "Estación de tren de San Isidro" },
+          { "hora": "07:45", "lineaId": "municipal", "destino": "Orihuela" },
+          { "hora": "08:55", "lineaId": "l635", "destino": "Elche" },
+          { "hora": "09:00", "lineaId": "l638", "destino": "Torrevieja" },
+          { "hora": "09:45", "lineaId": "municipal", "destino": "Orihuela" },
+          { "hora": "10:55", "lineaId": "l635", "destino": "Elche" },
+          { "hora": "11:00", "lineaId": "l635", "destino": "Orihuela" },
+          { "hora": "11:30", "lineaId": "l635", "destino": "Orihuela" },
+          { "hora": "11:30", "lineaId": "municipal", "destino": "Orihuela" },
+          { "hora": "13:00", "lineaId": "l635", "destino": "Orihuela" },
+          { "hora": "15:00", "lineaId": "l638", "destino": "Torrevieja" },
+          { "hora": "16:25", "lineaId": "l635", "destino": "Elche" },
+          { "hora": "17:30", "lineaId": "l638", "destino": "Torrevieja" },
+          { "hora": "22:00", "lineaId": "l635", "destino": "Orihuela" }
         ]
       }
     }
