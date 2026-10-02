@@ -41,12 +41,17 @@
     });
   }
 
+  function obtenerIdioma() {
+    return (typeof TEXTOS !== 'undefined' && TEXTOS[document.body.dataset.idioma]) || TEXTOS.es;
+  }
+
   function contenidoPopup(parada, lineas, prefijoEnlace, esActual) {
+    const t = obtenerIdioma();
     const chips = lineas
       .filter((l) => l.paradasIds.includes(parada.id))
       .map((l) => `<span class="mini-chip" style="background:${l.color}">${l.nombre}</span>`)
       .join(' ');
-    const enlace = esActual ? '' : `<br><a href="${prefijoEnlace}${parada.id}/index.html">Ver horarios →</a>`;
+    const enlace = esActual ? '' : `<br><a href="${prefijoEnlace}${parada.id}/index.html">${t.verHorariosFlecha}</a>`;
     return `<strong>${parada.nombre}</strong><br>${chips}${enlace}`;
   }
 
@@ -71,11 +76,12 @@
       }
     });
 
+    const t = obtenerIdioma();
     paradas.forEach((parada) => {
       const esActual = parada.id === idParadaActual;
       const marcador = L.marker([parada.lat, parada.lng], { icon: crearIconoParada(esActual) })
         .addTo(mapa)
-        .bindTooltip(esActual ? `${parada.nombre} (aquí)` : parada.nombre, {
+        .bindTooltip(esActual ? `${parada.nombre} ${t.aqui}` : parada.nombre, {
           permanent: true,
           direction: 'top',
           offset: [0, -6],

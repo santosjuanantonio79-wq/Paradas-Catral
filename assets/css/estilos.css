@@ -25,6 +25,52 @@ body {
   background: var(--color-primario);
   color: #fff;
   padding: 20px 16px;
+  position: relative;
+}
+.selector-idioma {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: flex;
+  gap: 6px;
+}
+.selector-idioma a,
+.selector-idioma .idioma-actual {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 4px 6px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 0.68rem;
+  font-weight: 700;
+}
+.selector-idioma a {
+  color: #fff;
+  opacity: 0.75;
+}
+.selector-idioma a:active,
+.selector-idioma a:hover {
+  opacity: 1;
+}
+.selector-idioma .idioma-actual {
+  background: rgba(255, 255, 255, 0.25);
+  color: #fff;
+}
+.selector-idioma .bandera {
+  width: 22px;
+  height: 15px;
+  font-size: 15px;
+  line-height: 15px;
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.5);
+}
+.selector-idioma span.bandera {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 .cabecera-parada h1 {
   margin: 8px 0 4px;

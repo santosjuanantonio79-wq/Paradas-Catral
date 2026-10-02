@@ -1,9 +1,15 @@
 (function () {
-  const DIAS_LABEL = {
-    laborable: 'Laborables',
-    sabado: 'Sábados',
-    domingo_festivo: 'Domingos y festivos'
-  };
+  function obtenerIdioma() {
+    return (typeof TEXTOS !== 'undefined' && TEXTOS[document.body.dataset.idioma]) || TEXTOS.es;
+  }
+
+  function etiquetasDia(t) {
+    return {
+      laborable: t.diaLaborable,
+      sabado: t.diaSabado,
+      domingo_festivo: t.diaDomingoFestivo
+    };
+  }
 
   function obtenerTipoDeDia(fecha) {
     const diaSemana = fecha.getDay(); // 0 = domingo, 6 = sábado
@@ -17,12 +23,12 @@
     return h * 60 + m;
   }
 
-  function formatoMinutosRestantes(mins) {
-    if (mins <= 0) return 'Saliendo ahora';
-    if (mins < 60) return `En ${mins} min`;
+  function formatoMinutosRestantes(mins, t) {
+    if (mins <= 0) return t.saliendoAhora;
+    if (mins < 60) return t.enMin(mins);
     const h = Math.floor(mins / 60);
     const m = mins % 60;
-    return `En ${h} h ${m} min`;
+    return t.enHoraMin(h, m);
   }
 
   async function cargarDatos() {
@@ -44,6 +50,7 @@
   }
 
   function renderizarProximos(contenedor, parada, datos, fecha) {
+    const t = obtenerIdioma();
     const tipoDia = obtenerTipoDeDia(fecha);
     const horaActualMin = fecha.getHours() * 60 + fecha.getMinutes();
 
@@ -54,7 +61,7 @@
       .slice(0, 4);
 
     if (proximos.length === 0) {
-      contenedor.innerHTML = '<p class="sin-buses">No quedan más autobuses hoy en esta parada.</p>';
+      contenedor.innerHTML = `<p class="sin-buses">${t.sinBuses}</p>`;
       return;
     }
 
@@ -62,7 +69,7 @@
       .map((item) => {
         const linea = lineaPorId(datos, item.lineaId);
         const empresa = empresaPorId(datos, linea.empresaId);
-        const restante = formatoMinutosRestantes(item.minutos - horaActualMin);
+        const restante = formatoMinutosRestantes(item.minutos - horaActualMin, t);
         return `
         <div class="proximo-bus">
           <div class="proximo-bus-hora">${item.hora}</div>
@@ -78,11 +85,13 @@
   }
 
   function renderizarTablaCompleta(contenedor, parada, datos) {
+    const t = obtenerIdioma();
+    const etiquetas = etiquetasDia(t);
     const tipos = ['laborable', 'sabado', 'domingo_festivo'];
     const tipoHoy = obtenerTipoDeDia(new Date());
 
     const botones = tipos
-      .map((t) => `<button class="tab-dia ${t === tipoHoy ? 'activo' : ''}" data-tipo="${t}">${DIAS_LABEL[t]}</button>`)
+      .map((tipo) => `<button class="tab-dia ${tipo === tipoHoy ? 'activo' : ''}" data-tipo="${tipo}">${etiquetas[tipo]}</button>`)
       .join('');
 
     contenedor.innerHTML = `<div class="tabs-dias">${botones}</div><div class="tabla-horarios-contenido"></div>`;
@@ -106,8 +115,8 @@
 
       contenido.innerHTML = `
         <table class="tabla-horarios">
-          <thead><tr><th>Hora</th><th>Línea</th><th>Destino</th><th>Empresa</th></tr></thead>
-          <tbody>${filas || '<tr><td colspan="4">Sin servicio este día</td></tr>'}</tbody>
+          <thead><tr><th>${t.colHora}</th><th>${t.colLinea}</th><th>${t.colDestino}</th><th>${t.colEmpresa}</th></tr></thead>
+          <tbody>${filas || `<tr><td colspan="4">${t.sinServicioEsteDia}</td></tr>`}</tbody>
         </table>`;
     }
 
@@ -143,11 +152,12 @@
     // Se actualiza solo cada 30s: la gente mira el móvil de pie, sin recargar.
     setInterval(actualizar, 30000);
 
+    const t = obtenerIdioma();
     const botonVerTodos = document.getElementById('boton-ver-horarios');
     if (botonVerTodos) {
       botonVerTodos.addEventListener('click', () => {
         contenedorTabla.hidden = !contenedorTabla.hidden;
-        botonVerTodos.textContent = contenedorTabla.hidden ? 'Ver todos los horarios' : 'Ocultar horarios';
+        botonVerTodos.textContent = contenedorTabla.hidden ? t.verTodosHorarios : t.ocultarHorarios;
       });
     }
   }
