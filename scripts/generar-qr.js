@@ -58,6 +58,7 @@ async function generar() {
     );
   }
 
+  if (fs.existsSync(CARPETA_QR)) fs.rmSync(CARPETA_QR, { recursive: true });
   fs.mkdirSync(CARPETA_QR, { recursive: true });
 
   for (const parada of datos.paradas) {
