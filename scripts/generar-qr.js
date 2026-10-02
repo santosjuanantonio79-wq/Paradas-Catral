@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const QRCode = require('qrcode');
+const { generarCartel } = require('../templates/cartel.js');
 
 const RAIZ = path.join(__dirname, '..');
 const CARPETA_QR = path.join(RAIZ, 'qr');
@@ -13,6 +14,7 @@ function generarHojaImpresion(datos, urlBase) {
         <img src="${parada.id}.png" alt="QR ${parada.nombre}">
         <p class="tarjeta-qr-nombre">${parada.nombre}</p>
         <p class="tarjeta-qr-url">${urlBase.replace(/\/$/, '')}/parada/${parada.id}/</p>
+        <a class="tarjeta-qr-cartel" href="cartel-${parada.id}.html">Ver cartel para imprimir →</a>
       </div>`
     )
     .join('');
@@ -33,6 +35,7 @@ function generarHojaImpresion(datos, urlBase) {
   .tarjeta-qr img { width: 100%; height: auto; }
   .tarjeta-qr-nombre { font-weight: bold; margin: 8px 0 2px; }
   .tarjeta-qr-url { font-size: 0.75rem; color: #555; word-break: break-all; }
+  .tarjeta-qr-cartel { display: block; margin-top: 8px; font-size: 0.8rem; }
   @media print {
     body { margin: 0; }
   }
@@ -66,6 +69,10 @@ async function generar() {
     const archivo = path.join(CARPETA_QR, `${parada.id}.png`);
     await QRCode.toFile(archivo, url, { width: 800, margin: 2 });
     console.log(`✓ qr/${parada.id}.png  →  ${url}`);
+
+    const cartel = generarCartel(parada, config.urlBase);
+    fs.writeFileSync(path.join(CARPETA_QR, `cartel-${parada.id}.html`), cartel);
+    console.log(`✓ qr/cartel-${parada.id}.html`);
   }
 
   fs.writeFileSync(path.join(CARPETA_QR, 'index.html'), generarHojaImpresion(datos, config.urlBase));
