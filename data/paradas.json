@@ -1,0 +1,132 @@
+{
+  "empresas": [
+    {
+      "id": "ruiz-transportes",
+      "nombre": "Ruiz Transportes",
+      "telefono": "965 701 234"
+    },
+    {
+      "id": "costa-azul",
+      "nombre": "Costa Azul Autocares",
+      "telefono": "966 450 876"
+    },
+    {
+      "id": "vega-baja",
+      "nombre": "Autobuses Vega Baja",
+      "telefono": "966 220 345"
+    }
+  ],
+
+  "lineas": [
+    {
+      "id": "l1",
+      "nombre": "Línea 1",
+      "empresaId": "ruiz-transportes",
+      "color": "#2563eb",
+      "recorridoTexto": "Catral (Santa Bárbara) → Catral (Ayuntamiento) → Catral (Parque Municipal) → Dolores → Elche",
+      "paradasIds": ["santa-barbara", "ayuntamiento", "parque-municipal"]
+    },
+    {
+      "id": "l2",
+      "nombre": "Línea 2",
+      "empresaId": "costa-azul",
+      "color": "#16a34a",
+      "recorridoTexto": "Catral (Ayuntamiento) → Catral (Santa Bárbara) → Callosa de Segura → Orihuela",
+      "paradasIds": ["ayuntamiento", "santa-barbara"]
+    },
+    {
+      "id": "l3",
+      "nombre": "Línea 3",
+      "empresaId": "vega-baja",
+      "color": "#dc2626",
+      "recorridoTexto": "Catral (Santa Bárbara) → Catral (Ayuntamiento) → Catral (Parque Municipal) → Cox → Albatera",
+      "paradasIds": ["santa-barbara", "ayuntamiento", "parque-municipal"]
+    }
+  ],
+
+  "paradas": [
+    {
+      "id": "santa-barbara",
+      "nombre": "Santa Bárbara",
+      "direccion": "Calle Mayor, 12, Catral",
+      "coordenadas": { "lat": 38.1601, "lng": -0.8018 },
+      "avisos": "",
+      "horarios": {
+        "laborable": [
+          { "hora": "07:30", "lineaId": "l1", "destino": "Elche" },
+          { "hora": "08:10", "lineaId": "l3", "destino": "Albatera" },
+          { "hora": "09:15", "lineaId": "l2", "destino": "Orihuela" },
+          { "hora": "13:00", "lineaId": "l1", "destino": "Elche" },
+          { "hora": "15:20", "lineaId": "l3", "destino": "Albatera" },
+          { "hora": "16:45", "lineaId": "l2", "destino": "Orihuela" },
+          { "hora": "19:30", "lineaId": "l1", "destino": "Elche" }
+        ],
+        "sabado": [
+          { "hora": "09:00", "lineaId": "l1", "destino": "Elche" },
+          { "hora": "11:30", "lineaId": "l3", "destino": "Albatera" },
+          { "hora": "14:00", "lineaId": "l2", "destino": "Orihuela" },
+          { "hora": "18:30", "lineaId": "l1", "destino": "Elche" }
+        ],
+        "domingo_festivo": [
+          { "hora": "10:00", "lineaId": "l2", "destino": "Orihuela" },
+          { "hora": "12:15", "lineaId": "l3", "destino": "Albatera" },
+          { "hora": "19:00", "lineaId": "l1", "destino": "Elche" }
+        ]
+      }
+    },
+    {
+      "id": "ayuntamiento",
+      "nombre": "Ayuntamiento",
+      "direccion": "Plaza de España, 1, Catral",
+      "coordenadas": { "lat": 38.1583, "lng": -0.8057 },
+      "avisos": "",
+      "horarios": {
+        "laborable": [
+          { "hora": "07:40", "lineaId": "l1", "destino": "Elche" },
+          { "hora": "08:20", "lineaId": "l3", "destino": "Albatera" },
+          { "hora": "09:05", "lineaId": "l2", "destino": "Orihuela" },
+          { "hora": "13:10", "lineaId": "l1", "destino": "Elche" },
+          { "hora": "15:30", "lineaId": "l3", "destino": "Albatera" },
+          { "hora": "16:35", "lineaId": "l2", "destino": "Orihuela" },
+          { "hora": "19:40", "lineaId": "l1", "destino": "Elche" }
+        ],
+        "sabado": [
+          { "hora": "08:50", "lineaId": "l1", "destino": "Elche" },
+          { "hora": "11:40", "lineaId": "l3", "destino": "Albatera" },
+          { "hora": "13:50", "lineaId": "l2", "destino": "Orihuela" },
+          { "hora": "18:20", "lineaId": "l1", "destino": "Elche" }
+        ],
+        "domingo_festivo": [
+          { "hora": "09:50", "lineaId": "l2", "destino": "Orihuela" },
+          { "hora": "12:25", "lineaId": "l3", "destino": "Albatera" },
+          { "hora": "18:50", "lineaId": "l1", "destino": "Elche" }
+        ]
+      }
+    },
+    {
+      "id": "parque-municipal",
+      "nombre": "Parque Municipal",
+      "direccion": "Avenida de la Libertad, s/n, Catral",
+      "coordenadas": { "lat": 38.1572, "lng": -0.8036 },
+      "avisos": "",
+      "horarios": {
+        "laborable": [
+          { "hora": "07:50", "lineaId": "l1", "destino": "Elche" },
+          { "hora": "08:30", "lineaId": "l3", "destino": "Albatera" },
+          { "hora": "13:20", "lineaId": "l1", "destino": "Elche" },
+          { "hora": "15:40", "lineaId": "l3", "destino": "Albatera" },
+          { "hora": "19:50", "lineaId": "l1", "destino": "Elche" }
+        ],
+        "sabado": [
+          { "hora": "09:10", "lineaId": "l1", "destino": "Elche" },
+          { "hora": "11:50", "lineaId": "l3", "destino": "Albatera" },
+          { "hora": "18:40", "lineaId": "l1", "destino": "Elche" }
+        ],
+        "domingo_festivo": [
+          { "hora": "12:35", "lineaId": "l3", "destino": "Albatera" },
+          { "hora": "19:10", "lineaId": "l1", "destino": "Elche" }
+        ]
+      }
+    }
+  ]
+}

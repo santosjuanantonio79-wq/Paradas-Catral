@@ -1,0 +1,13 @@
+{
+  "name": "paradas-catral",
+  "version": "1.0.0",
+  "description": "Web de informacion de autobuses para las paradas de Catral",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/build.js",
+    "generar-qr": "node scripts/generar-qr.js"
+  },
+  "dependencies": {
+    "qrcode": "^1.5.4"
+  }
+}
